@@ -1,5 +1,6 @@
 package com.example.test.demo.user;
 
+import com.example.test.demo.Addresses.Address;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,12 +30,18 @@ public class User implements UserDetails {
 
     private String lastName;
 
+    @Column(nullable = false,unique = true)
     private  String email;
 
     private  String password;
 
     @Enumerated(EnumType.STRING)
     private  Role role;
+
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
