@@ -8,9 +8,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
+@Builder
 @Setter
 @Entity
-@Builder
+
 public class Address {
 
     @Id
