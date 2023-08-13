@@ -31,8 +31,8 @@ public class DemoResourcesApplication {
 			System.out.println("Admin token: " + service.register(admin).getToken());
 
 			var manager = RegisterRequest.builder()
-					.firstName("Admin")
-					.lastName("Admin")
+					.firstName("manager")
+					.lastName("manager")
 					.email("manager@mail.com")
 					.password("password")
 					.role(MANAGER)

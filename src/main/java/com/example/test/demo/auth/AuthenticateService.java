@@ -21,7 +21,12 @@ public class AuthenticateService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+
+
+
+
     public AuthenticationResponse authenticate(AuthenticateRequest request) {
+
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
