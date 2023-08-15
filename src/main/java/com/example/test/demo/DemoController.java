@@ -2,6 +2,7 @@ package com.example.test.demo;
 
 import com.example.test.demo.auth.AuthenticateService;
 import com.example.test.demo.user.User;
+import io.swagger.v3.oas.annotations.Hidden;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/v1/demo")
+@Hidden // hide the controller in Swagger
 public class DemoController {
     AuthenticateService userService;
     @GetMapping
