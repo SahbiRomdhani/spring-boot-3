@@ -6,10 +6,12 @@ import io.swagger.v3.oas.annotations.Hidden;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
@@ -29,5 +31,10 @@ public class DemoController {
         return ResponseEntity.ok(allUsers);
     }
 
+    @GetMapping("/getUserByID/{userId}")
+    public ResponseEntity<Optional<User>> GetUserByID(@PathVariable("userId") Long id){
+         Optional<User> user = userService.findUserById(id);
+        return ResponseEntity.ok(user);
+        }
 
 }

@@ -2,7 +2,6 @@ package com.example.test.demo.auth;
 
 
 import com.example.test.demo.config.JwtService;
-import com.example.test.demo.user.Role;
 import com.example.test.demo.user.User;
 import com.example.test.demo.user.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -59,5 +59,9 @@ public class AuthenticateService {
 
     public List<User> GetAllUsers(){
         return userRepository.findAll();
+    }
+
+    public Optional<User> findUserById(Long id) {
+        return userRepository.findById(id);
     }
 }

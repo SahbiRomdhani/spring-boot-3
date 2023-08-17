@@ -1,6 +1,8 @@
 package com.example.test.demo.user;
 
 import com.example.test.demo.Addresses.Address;
+import com.example.test.demo.Departements.Department;
+import com.example.test.demo.Missions.Mission;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,10 +40,28 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private  Role role;
 
-  /*  @OneToOne
+    @OneToOne
     @JoinColumn(name = "address_id",nullable = true)
+    private Address address;
 
-    private Address address;*/
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
+
+    @ManyToMany
+    @JoinTable(
+            name = "UsersMissions",
+            joinColumns = @JoinColumn(
+                    name = "user_id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "mission_id"
+            )
+
+    )
+    private List<Mission> missions;
+
+
 
 
     @Override
